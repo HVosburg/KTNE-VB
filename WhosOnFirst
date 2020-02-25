@@ -1,0 +1,406 @@
+Public Class WhosonFirst
+
+    Sub Reset()
+        lblToolstrip.Text = ""
+        txtDisplay.Text = ""
+        txtMatch.Text = ""
+        lstList.Clear()
+        picC.Hide()
+        picCee.Hide()
+        picDisplay.Hide()
+        picFirst.Hide()
+        picHoldOn.Hide()
+        picLead.Hide()
+        picLed.Hide()
+        picLeed.Hide()
+        picNo.Hide()
+        picNothing.Hide()
+        picNull.Hide()
+        picOkay.Hide()
+        picRead.Hide()
+        picRed.Hide()
+        picReed.Hide()
+        picSays.Hide()
+        picSee.Hide()
+        picTheir.Hide()
+        picThere.Hide()
+        picTheyAre.Hide()
+        picTheyre.Hide()
+        picUr.Hide()
+        picYes.Hide()
+        picYou.Hide()
+        picYouAre.Hide()
+        picYour.Hide()
+        picYoure.Hide()
+    End Sub
+
+    Sub Resetpic()
+        lblToolstrip.Text = ""
+        picBlank.Hide()
+        picC.Hide()
+        picCee.Hide()
+        picDisplay.Hide()
+        picFirst.Hide()
+        picHoldOn.Hide()
+        picLead.Hide()
+        picLed.Hide()
+        picLeed.Hide()
+        picNo.Hide()
+        picNothing.Hide()
+        picNull.Hide()
+        picOkay.Hide()
+        picRead.Hide()
+        picRed.Hide()
+        picReed.Hide()
+        picSays.Hide()
+        picSee.Hide()
+        picTheir.Hide()
+        picThere.Hide()
+        picTheyAre.Hide()
+        picTheyre.Hide()
+        picUr.Hide()
+        picYes.Hide()
+        picYou.Hide()
+        picYouAre.Hide()
+        picYour.Hide()
+        picYoure.Hide()
+    End Sub
+
+    Private Sub btnDisplayConfirm_Click(sender As Object, e As EventArgs) Handles btnDisplayConfirm.Click
+        If txtMatch.Text = "" Then
+            Resetpic()
+            Select Case txtDisplay.Text
+                Case "Blank"
+                    picBlank.Show()
+                Case "C"
+                    picC.Show()
+                Case "Cee"
+                    picCee.Show()
+                Case "Display"
+                    picDisplay.Show()
+                Case "First"
+                    picFirst.Show()
+                Case "Hold On"
+                    picHoldOn.Show()
+                Case "Lead"
+                    picLead.Show()
+                Case "Led"
+                    picLed.Show()
+                Case "Leed"
+                    picLeed.Show()
+                Case "No"
+                    picNo.Show()
+                Case "Nothing"
+                    picNothing.Show()
+                Case "Null"
+                    picNull.Show()
+                Case "Okay"
+                    picOkay.Show()
+                Case "Read"
+                    picRead.Show()
+                Case "Red"
+                    picRed.Show()
+                Case "Reed"
+                    picReed.Show()
+                Case "Says"
+                    picSays.Show()
+                Case "See"
+                    picSee.Show()
+                Case "Their"
+                    picTheir.Show()
+                Case "There"
+                    picThere.Show()
+                Case "They Are"
+                    picTheyAre.Show()
+                Case "They're"
+                    picTheyre.Show()
+                Case "Ur"
+                    picUr.Show()
+                Case "Yes"
+                    picYes.Show()
+                Case "You"
+                    picYou.Show()
+                Case "You Are"
+                    picYouAre.Show()
+                Case "Your"
+                    picYour.Show()
+                Case "You're"
+                    picYoure.Show()
+                Case Else
+                    lblToolstrip.Text = "Incorrect Word"
+            End Select
+        Else
+            lstList.Clear()
+            Select Case txtMatch.Text
+                Case "Ready"
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("Ready")
+                Case "First"
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("First")
+                Case "No"
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("First")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("No")
+                Case "Blank"
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("Blank")
+                Case "Nothing"
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("First")
+                    lstList.Items.Add("Nothing")
+                Case "Yes"
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("First")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Yes")
+                Case "What"
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("What")
+                Case "Uhhh"
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("Uhhh")
+                Case "Left"
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Left")
+                Case "Right"
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Right")
+                Case "Middle"
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("Middle")
+                Case "Okay"
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("First")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("Nothing")
+                    lstList.Items.Add("Wait")
+                    lstList.Items.Add("Okay")
+                Case "Wait"
+                    lstList.Items.Add("Uhhh")
+                    lstList.Items.Add("No")
+                    lstList.Items.Add("Blank")
+                    lstList.Items.Add("Okay")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Left")
+                    lstList.Items.Add("First")
+                    lstList.Items.Add("Press")
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Wait")
+                Case "Press"
+                    lstList.Items.Add("Right")
+                    lstList.Items.Add("Middle")
+                    lstList.Items.Add("Yes")
+                    lstList.Items.Add("Ready")
+                    lstList.Items.Add("Press")
+                Case "You"
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("Your")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("You")
+                Case "You Are"
+                    lstList.Items.Add("Your")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("Like")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("You Are")
+                Case "Your"
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Your")
+                Case "You're"
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("You're")
+                Case "Ur"
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("Ur")
+                Case "U"
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("U")
+                Case "Uh Huh"
+                    lstList.Items.Add("Uh Huh")
+                Case "Uh Uh"
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("Uh Uh")
+                Case "What?"
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Your")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("Like")
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("What?")
+                Case "Done"
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("Your")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("Like")
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("Done")
+                Case "Next"
+                    lstList.Items.Add("What")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("Your")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("Next")
+                Case "Hold"
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Sure")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("Hold")
+                Case "Sure"
+                    lstList.Items.Add("You Are")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("Like")
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Sure")
+                Case "Like"
+                    lstList.Items.Add("You're")
+                    lstList.Items.Add("Next")
+                    lstList.Items.Add("U")
+                    lstList.Items.Add("Ur")
+                    lstList.Items.Add("Hold")
+                    lstList.Items.Add("Done")
+                    lstList.Items.Add("Uh Uh")
+                    lstList.Items.Add("What?")
+                    lstList.Items.Add("Uh Huh")
+                    lstList.Items.Add("You")
+                    lstList.Items.Add("Like")
+                Case Else
+                    lblToolstrip.Text = "Incorrect Word"
+            End Select
+        End If
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        Reset()
+    End Sub
+End Class
