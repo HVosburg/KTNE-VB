@@ -1,0 +1,281 @@
+Public Class frmWires
+
+    Dim strSerial As String = "Blank"
+
+    Dim str1 As String = ""
+    Dim str2 As String = ""
+    Dim str3 As String = ""
+    Dim str4 As String = ""
+    Dim str5 As String = ""
+    Dim str6 As String = ""
+
+    Dim intRedAmt As Integer = 0
+    Dim intYellowAmt As Integer = 0
+    Dim intWhiteAmt As Integer = 0
+    Dim intBlueAmt As Integer = 0
+    Dim intBlackAmt As Integer = 0
+
+    Sub WiresCalc()
+        Dim intWiresCount As Integer = lstWires.Items.Count
+        Select Case intWiresCount
+            Case 3
+                If intRedAmt = 0 Then
+                    lstWires.Items.Add("Cut the 2nd wire")
+                ElseIf str3 = "White" Then
+                    lstWires.Items.Add("Cut the last wire")
+                ElseIf intBlueAmt > 1 Then
+                    lstWires.Items.Add("Cut the last blue wire")
+                Else
+                    lstWires.Items.Add("Cut the last wire")
+                End If
+            Case 4
+                If intRedAmt > 1 And strSerial = "Blank" Then
+                    lblStatus.Text = ("Last digit of the serial number Even or Odd?")
+                ElseIf strSerial = "Odd" Then
+                    lstWires.Items.Add("Cut the last red wire")
+                ElseIf strSerial = "Even" Then
+                    If str4 = "Yellow" And intRedAmt = 0 Then
+                        lstWires.Items.Add("Cut the first wire")
+                    ElseIf intBlueAmt = 1 Then
+                        lstWires.Items.Add("Cut the first wire")
+                    ElseIf intYellowAmt > 1 Then
+                        lstWires.Items.Add("Cut the last wire")
+                    Else
+                        lstWires.Items.Add("Cut the second wire")
+                    End If
+                ElseIf str4 = "Yellow" And intRedAmt = 0 Then
+                    lstWires.Items.Add("Cut the first wire")
+                ElseIf intBlueAmt = 1 Then
+                    lstWires.Items.Add("Cut the first wire")
+                ElseIf intYellowAmt > 1 Then
+                    lstWires.Items.Add("Cut the last wire")
+                Else
+                    lstWires.Items.Add("Cut the second wire")
+                End If
+            Case 5
+                If str5 = "Black" And strSerial = "Blank" Then
+                    lblStatus.Text = ("Last digit of the serial number Even or Odd?")
+                ElseIf strSerial = "Odd" Then
+                    lstWires.Items.Add("Cut the fourth wire")
+                ElseIf strSerial = "Even" Then
+                    If intRedAmt = 1 And intYellowAmt > 1 Then
+                        lstWires.Items.Add("Cut the first wire")
+                    ElseIf intBlackAmt = 0 Then
+                        lstWires.Items.Add("Cut the second wire")
+                    Else
+                        lstWires.Items.Add("Cut the first wire")
+                    End If
+                ElseIf intRedAmt = 1 And intYellowAmt > 1 Then
+                    lstWires.Items.Add("Cut the first wire")
+                ElseIf intBlackAmt = 0 Then
+                    lstWires.Items.Add("Cut the second wire")
+                Else
+                    lstWires.Items.Add("Cut the first wire")
+                End If
+            Case 6
+                If intYellowAmt = 0 And strSerial = "Blank" Then
+                    lblStatus.Text = ("Last digit of the serial number Even or Odd?")
+                ElseIf strSerial = "Odd" Then
+                    lstWires.Items.Add("Cut the third wire")
+                ElseIf strSerial = "Even" Then
+                    If intYellowAmt = 1 And intWhiteAmt > 1 Then
+                        lstWires.Items.Add("Cut the fourth wire")
+                    ElseIf intRedAmt = 0 Then
+                        lstWires.Items.Add("Cut the last wire")
+                    Else
+                        lstWires.Items.Add("Cut the fourth wire")
+                    End If
+                ElseIf intYellowAmt = 1 And intWhiteAmt > 1 Then
+                    lstWires.Items.Add("Cut the fourth wire")
+                ElseIf intRedAmt = 0 Then
+                    lstWires.Items.Add("Cut the last wire")
+                Else
+                    lstWires.Items.Add("Cut the fourth wire")
+                End If
+        End Select
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles WiresRed.Click
+        Select Case lstWires.Items.Count
+            Case 0
+                lstWires.Items.Add("Red")
+                str1 = "Red"
+                intRedAmt = intRedAmt + 1
+            Case 1
+                lstWires.Items.Add("Red")
+                str2 = "Red"
+                intRedAmt = intRedAmt + 1
+            Case 2
+                lstWires.Items.Add("Red")
+                str3 = "Red"
+                intRedAmt = intRedAmt + 1
+            Case 3
+                lstWires.Items.Add("Red")
+                str4 = "Red"
+                intRedAmt = intRedAmt + 1
+            Case 4
+                lstWires.Items.Add("Red")
+                str5 = "Red"
+                intRedAmt = intRedAmt + 1
+            Case 5
+                lstWires.Items.Add("Red")
+                str6 = "Red"
+                intRedAmt = intRedAmt + 1
+                WiresCalc()
+        End Select
+    End Sub
+
+    Private Sub WiresYellow_Click(sender As Object, e As EventArgs) Handles WiresYellow.Click
+        Select Case lstWires.Items.Count
+            Case 0
+                lstWires.Items.Add("Yellow")
+                str1 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+            Case 1
+                lstWires.Items.Add("Yellow")
+                str2 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+            Case 2
+                lstWires.Items.Add("Yellow")
+                str3 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+            Case 3
+                lstWires.Items.Add("Yellow")
+                str4 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+            Case 4
+                lstWires.Items.Add("Yellow")
+                str5 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+            Case 5
+                lstWires.Items.Add("Yellow")
+                str6 = "Yellow"
+                intYellowAmt = intYellowAmt + 1
+                WiresCalc()
+        End Select
+    End Sub
+
+    Private Sub WiresWhite_Click(sender As Object, e As EventArgs) Handles WiresWhite.Click
+        Select Case lstWires.Items.Count
+            Case 0
+                lstWires.Items.Add("White")
+                str1 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+            Case 1
+                lstWires.Items.Add("White")
+                str2 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+            Case 2
+                lstWires.Items.Add("White")
+                str3 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+            Case 3
+                lstWires.Items.Add("White")
+                str4 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+            Case 4
+                lstWires.Items.Add("White")
+                str5 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+            Case 5
+                lstWires.Items.Add("White")
+                str6 = "White"
+                intWhiteAmt = intWhiteAmt + 1
+                WiresCalc()
+        End Select
+    End Sub
+
+    Private Sub WiresBlue_Click(sender As Object, e As EventArgs) Handles WiresBlue.Click
+        Select Case lstWires.Items.Count
+            Case 0
+                lstWires.Items.Add("Blue")
+                str1 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+            Case 1
+                lstWires.Items.Add("Blue")
+                str2 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+            Case 2
+                lstWires.Items.Add("Blue")
+                str3 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+            Case 3
+                lstWires.Items.Add("Blue")
+                str4 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+            Case 4
+                lstWires.Items.Add("Blue")
+                str5 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+            Case 5
+                lstWires.Items.Add("Blue")
+                str6 = "Blue"
+                intBlueAmt = intBlueAmt + 1
+                WiresCalc()
+        End Select
+    End Sub
+
+    Private Sub WiresBlack_Click(sender As Object, e As EventArgs) Handles WiresBlack.Click
+        Select Case lstWires.Items.Count
+            Case 0
+                lstWires.Items.Add("Black")
+                str1 = "Black"
+                intBlackAmt = intBlackAmt + 1
+            Case 1
+                lstWires.Items.Add("Black")
+                str2 = "Black"
+                intBlackAmt = intBlackAmt + 1
+            Case 2
+                lstWires.Items.Add("Black")
+                str3 = "Black"
+                intBlackAmt = intBlackAmt + 1
+            Case 3
+                lstWires.Items.Add("Black")
+                str4 = "Black"
+                intBlackAmt = intBlackAmt + 1
+            Case 4
+                lstWires.Items.Add("Black")
+                str5 = "Black"
+                intBlackAmt = intBlackAmt + 1
+            Case 5
+                lstWires.Items.Add("Black")
+                str6 = "Black"
+                intBlackAmt = intBlackAmt + 1
+                WiresCalc()
+        End Select
+    End Sub
+
+    Private Sub WiresConfirm_Click(sender As Object, e As EventArgs) Handles WiresConfirm.Click
+        WiresCalc()
+    End Sub
+
+    Private Sub WiresSerialEven_Click(sender As Object, e As EventArgs) Handles WiresSerialEven.Click
+        strSerial = "Even"
+        WiresCalc()
+    End Sub
+
+    Private Sub WiresSerialOdd_Click(sender As Object, e As EventArgs) Handles WiresSerialOdd.Click
+        strSerial = "Odd"
+        WiresCalc()
+    End Sub
+
+    Private Sub WiresReset_Click(sender As Object, e As EventArgs) Handles WiresReset.Click
+        strSerial = "Blank"
+
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        str4 = ""
+        str5 = ""
+        str6 = ""
+
+        intRedAmt = 0
+        intYellowAmt = 0
+        intWhiteAmt = 0
+        intBlueAmt = 0
+        intBlackAmt = 0
+
+        lstWires.Clear()
+        lblStatus.Text = ""
+    End Sub
+End Class
