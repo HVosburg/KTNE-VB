@@ -1,0 +1,2092 @@
+Public Class frmKeypads
+
+    Dim intCount As Integer = 0
+
+    Dim input1 As String
+    Dim input2 As String
+    Dim input3 As String
+    Dim input4 As String
+
+    Dim lviA As String
+    Dim lviB As String
+    Dim lviC As String
+    Dim lviD As String
+    Dim lviE As String
+    Dim lviF As String
+    Dim lviG As String
+    Dim lviH As String
+    Dim lviI As String
+    Dim lviJ As String
+    Dim lviK As String
+    Dim lviL As String
+    Dim lviM As String
+    Dim lviN As String
+    Dim lviO As String
+    Dim lviP As String
+    Dim lviQ As String
+    Dim lviR As String
+    Dim lviS As String
+    Dim lviT As String
+    Dim lviU As String
+    Dim lviV As String
+    Dim lviW As String
+    Dim lviX As String
+    Dim lviY As String
+    Dim lviZ As String
+    Dim lviAA As String
+
+    Dim blnPic1Show As Boolean
+    Dim blnPic2Show As Boolean
+    Dim blnPic3Show As Boolean
+    Dim blnPic4Show As Boolean
+
+    Dim lst1() As String = {"Balloon", "At", "Upsidedowny", "Squigglyn", "Squidknife", "Hookn", "Leftc"}
+    Dim lst2() As String = {"Euro", "Balloon", "Leftc", "Cursive", "Hollowstar", "Hookn", "Questionmark"}
+    Dim lst3() As String = {"Copyright", "Pumpkin", "Cursive", "Doublek", "Meltedthree", "Upsidedowny", "Hollowstar"}
+    Dim lst4() As String = {"Six", "Paragraph", "Bt", "Squidknife", "Doublek", "Questionmark", "Smileyface"}
+    Dim lst5() As String = {"Pitchfork", "Smileyface", "Bt", "Rightc", "Paragraph", "Dragon", "Filledstar"}
+    Dim lst6() As String = {"Six", "Euro", "Tracks", "Ae", "Pitchfork", "Nwithhat", "Omega"}
+
+    Private Sub frmKeypads_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        picAns1.Hide()
+        picAns2.Hide()
+        picAns3.Hide()
+        picAns4.Hide()
+        blnPic1Show = False
+        blnPic2Show = False
+        blnPic3Show = False
+        blnPic4Show = False
+
+    End Sub
+
+    Sub Reset()
+        lstKp.Items.Clear()
+        lbl1.Text = ""
+        intCount = 0
+        input1 = ""
+        input2 = ""
+        input3 = ""
+        input4 = ""
+        picAns1.Hide()
+        picAns2.Hide()
+        picAns3.Hide()
+        picAns4.Hide()
+        blnPic1Show = False
+        blnPic2Show = False
+        blnPic3Show = False
+        blnPic4Show = False
+    End Sub
+
+    Sub Order()
+
+        'Check if all match lst1----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        If lst1.Contains(input1) And lst1.Contains(input2) And lst1.Contains(input3) And lst1.Contains(input4) Then
+
+            'Check if there is a match in lst1(0)
+            If lst1.GetValue(0) = input1 Or lst1.GetValue(0) = input2 Or lst1.GetValue(0) = input3 Or lst1.GetValue(0) = input4 Then
+
+                'Record match for picAns1
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\28-balloon.png")
+
+                'Show match for use in identifying number of matches, position
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            'Check if there is a match in lst1(1)
+            If lst1.GetValue(1) = input1 Or lst1.GetValue(1) = input2 Or lst1.GetValue(1) = input3 Or lst1.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    'Record match for picAns2
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\13-at.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    'Record match for picAns1
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\13-at.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            'Check if there is a match in lst1(2)
+            If lst1.GetValue(2) = input1 Or lst1.GetValue(2) = input2 Or lst1.GetValue(2) = input3 Or lst1.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    'Record match for picAns3
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\30-upsidedowny.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    'Record match for picAns2
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\30-upsidedowny.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    'Record match for picAns1
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\30-upsidedowny.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            'Check if there is a match in lst1(3)
+            If lst1.GetValue(3) = input1 Or lst1.GetValue(3) = input2 Or lst1.GetValue(3) = input3 Or lst1.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    'Record match for picAns4
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\12-squigglyn.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    'Record match for picAns3
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\12-squigglyn.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    'Record match for picAns2
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\12-squigglyn.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    'Record match for picAns1
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\12-squigglyn.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            'Check if there is a match in lst1(4)
+            If lst1.GetValue(4) = input1 Or lst1.GetValue(4) = input2 Or lst1.GetValue(4) = input3 Or lst1.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    'Record match for picAns4
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    'Record match for picAns3
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    'Record match for picAns2
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            'Check if there is a match in lst1(5)
+            If lst1.GetValue(5) = input1 Or lst1.GetValue(5) = input2 Or lst1.GetValue(5) = input3 Or lst1.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    'Record match for picAns4
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\9-hookn.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    'Record match for picAns3
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\9-hookn.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            'Check if there is a match in lst1(6)
+            If lst1.GetValue(6) = input1 Or lst1.GetValue(6) = input2 Or lst1.GetValue(6) = input3 Or lst1.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    'Record match for picAns4
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\23-leftc.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+
+            'Check if all match lst2------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ElseIf lst2.Contains(input1) And lst2.Contains(input2) And lst2.Contains(input3) And lst2.Contains(input4) Then
+
+            If lst2.GetValue(0) = input1 Or lst2.GetValue(0) = input2 Or lst2.GetValue(0) = input3 Or lst2.GetValue(0) = input4 Then
+
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\16-euro.png")
+
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            If lst2.GetValue(1) = input1 Or lst2.GetValue(1) = input2 Or lst2.GetValue(1) = input3 Or lst2.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\28-balloon.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\28-balloon.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst2.GetValue(2) = input1 Or lst2.GetValue(2) = input2 Or lst2.GetValue(2) = input3 Or lst2.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\23-leftc.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\23-leftc.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\23-leftc.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst2.GetValue(3) = input1 Or lst2.GetValue(3) = input2 Or lst2.GetValue(3) = input3 Or lst2.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst2.GetValue(4) = input1 Or lst2.GetValue(4) = input2 Or lst2.GetValue(4) = input3 Or lst2.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\3-hollowstar.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\3-hollowstar.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\3-hollowstar.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            If lst2.GetValue(5) = input1 Or lst2.GetValue(5) = input2 Or lst2.GetValue(5) = input3 Or lst2.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\9-hookn.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\9-hookn.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            If lst2.GetValue(6) = input1 Or lst2.GetValue(6) = input2 Or lst2.GetValue(6) = input3 Or lst2.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\20-questionmark.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+            'Check if all match lst3------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ElseIf lst3.Contains(input1) And lst3.Contains(input2) And lst3.Contains(input3) And lst3.Contains(input4) Then
+
+            If lst3.GetValue(0) = input1 Or lst3.GetValue(0) = input2 Or lst3.GetValue(0) = input3 Or lst3.GetValue(0) = input4 Then
+
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\1-copyright.png")
+
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            If lst3.GetValue(1) = input1 Or lst3.GetValue(1) = input2 Or lst3.GetValue(1) = input3 Or lst3.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\8-pumpkin.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\8-pumpkin.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst3.GetValue(2) = input1 Or lst3.GetValue(2) = input2 Or lst3.GetValue(2) = input3 Or lst3.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\26-cursive.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst3.GetValue(3) = input1 Or lst3.GetValue(3) = input2 Or lst3.GetValue(3) = input3 Or lst3.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst3.GetValue(4) = input1 Or lst3.GetValue(4) = input2 Or lst3.GetValue(4) = input3 Or lst3.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\15-meltedthree.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\15-meltedthree.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\15-meltedthree.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            If lst3.GetValue(5) = input1 Or lst3.GetValue(5) = input2 Or lst3.GetValue(5) = input3 Or lst3.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\30-upsidedowny.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\30-upsidedowny.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            If lst3.GetValue(6) = input1 Or lst3.GetValue(6) = input2 Or lst3.GetValue(6) = input3 Or lst3.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\3-hollowstar.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+            'Check if all match lst4------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ElseIf lst4.Contains(input1) And lst4.Contains(input2) And lst4.Contains(input3) And lst4.Contains(input4) Then
+
+            If lst4.GetValue(0) = input1 Or lst4.GetValue(0) = input2 Or lst4.GetValue(0) = input3 Or lst4.GetValue(0) = input4 Then
+
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\11-six.png")
+
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            If lst4.GetValue(1) = input1 Or lst4.GetValue(1) = input2 Or lst4.GetValue(1) = input3 Or lst4.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\21-paragraph.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\21-paragraph.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst4.GetValue(2) = input1 Or lst4.GetValue(2) = input2 Or lst4.GetValue(2) = input3 Or lst4.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst4.GetValue(3) = input1 Or lst4.GetValue(3) = input2 Or lst4.GetValue(3) = input3 Or lst4.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\7-squidknife.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst4.GetValue(4) = input1 Or lst4.GetValue(4) = input2 Or lst4.GetValue(4) = input3 Or lst4.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\5-doublek.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            If lst4.GetValue(5) = input1 Or lst4.GetValue(5) = input2 Or lst4.GetValue(5) = input3 Or lst4.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\20-questionmark.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\20-questionmark.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            If lst4.GetValue(6) = input1 Or lst4.GetValue(6) = input2 Or lst4.GetValue(6) = input3 Or lst4.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\4-smileyface.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+            'Check if all match lst5------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ElseIf lst5.Contains(input1) And lst5.Contains(input2) And lst5.Contains(input3) And lst5.Contains(input4) Then
+
+            If lst5.GetValue(0) = input1 Or lst5.GetValue(0) = input2 Or lst5.GetValue(0) = input3 Or lst5.GetValue(0) = input4 Then
+
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\24-pitchfork.png")
+
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            If lst5.GetValue(1) = input1 Or lst5.GetValue(1) = input2 Or lst5.GetValue(1) = input3 Or lst5.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\4-smileyface.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\4-smileyface.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst5.GetValue(2) = input1 Or lst5.GetValue(2) = input2 Or lst5.GetValue(2) = input3 Or lst5.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\31-bt.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst5.GetValue(3) = input1 Or lst5.GetValue(3) = input2 Or lst5.GetValue(3) = input3 Or lst5.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\22-rightc.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\22-rightc.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\22-rightc.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\22-rightc.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst5.GetValue(4) = input1 Or lst5.GetValue(4) = input2 Or lst5.GetValue(4) = input3 Or lst5.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\21-paragraph.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\21-paragraph.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\21-paragraph.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            If lst5.GetValue(5) = input1 Or lst5.GetValue(5) = input2 Or lst5.GetValue(5) = input3 Or lst5.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\19-dragon.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\19-dragon.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            If lst5.GetValue(6) = input1 Or lst5.GetValue(6) = input2 Or lst5.GetValue(6) = input3 Or lst5.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\2-filledstar.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+            'Check if all match lst6------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ElseIf lst6.Contains(input1) And lst6.Contains(input2) And lst6.Contains(input3) And lst6.Contains(input4) Then
+
+            If lst6.GetValue(0) = input1 Or lst6.GetValue(0) = input2 Or lst6.GetValue(0) = input3 Or lst6.GetValue(0) = input4 Then
+
+                picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\11-six.png")
+
+                picAns1.Show()
+                blnPic1Show = True
+
+            End If
+
+            If lst6.GetValue(1) = input1 Or lst6.GetValue(1) = input2 Or lst6.GetValue(1) = input3 Or lst6.GetValue(1) = input4 Then
+
+                If blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\16-euro.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\16-euro.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst6.GetValue(2) = input1 Or lst6.GetValue(2) = input2 Or lst6.GetValue(2) = input3 Or lst6.GetValue(2) = input4 Then
+
+                If blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\27-tracks.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\27-tracks.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\27-tracks.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst6.GetValue(3) = input1 Or lst6.GetValue(3) = input2 Or lst6.GetValue(3) = input3 Or lst6.GetValue(3) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\14-ae.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\14-ae.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\14-ae.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                ElseIf blnPic1Show = False Then
+
+                    picAns1.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\14-ae.png")
+
+                    picAns1.Show()
+                    blnPic1Show = True
+
+                End If
+
+            End If
+
+            If lst6.GetValue(4) = input1 Or lst6.GetValue(4) = input2 Or lst6.GetValue(4) = input3 Or lst6.GetValue(4) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\24-pitchfork.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\24-pitchfork.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                ElseIf blnPic1Show = True Then
+
+                    picAns2.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\24-pitchfork.png")
+
+                    picAns2.Show()
+                    blnPic2Show = True
+
+                End If
+
+            End If
+
+            If lst6.GetValue(5) = input1 Or lst6.GetValue(5) = input2 Or lst6.GetValue(5) = input3 Or lst6.GetValue(5) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\18-nwithhat.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                ElseIf blnPic2Show = True Then
+
+                    picAns3.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\18-nwithhat.png")
+
+                    picAns3.Show()
+                    blnPic3Show = True
+
+                End If
+
+            End If
+
+            If lst6.GetValue(6) = input1 Or lst6.GetValue(6) = input2 Or lst6.GetValue(6) = input3 Or lst6.GetValue(6) = input4 Then
+
+                If blnPic3Show = True Then
+
+                    picAns4.Image = Image.FromFile("Z:\KTNE VB\Solutions\Keypads\Pics\6-omega.png")
+
+                    picAns4.Show()
+                    blnPic4Show = True
+
+                End If
+
+            End If
+
+        Else
+            lbl1.Text = "No match"
+        End If
+
+
+
+    End Sub
+
+
+    Private Sub Copyright_Click(sender As Object, e As EventArgs) Handles picCopyright.Click
+        lviA = "Copyright"
+        Select Case intCount
+            Case 0
+                input1 = lviA
+                Try
+                    lstKp.Items.Add(lviA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.Text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviA
+                Try
+                    lstKp.Items.Add(lviA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.Text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviA
+                Try
+                    lstKp.Items.Add(lviA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.Text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviA
+                Try
+                    lstKp.Items.Add(lviA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.Text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picFilledstar_Click(sender As Object, e As EventArgs) Handles picFilledstar.Click
+        lviB = "Filledstar"
+        Select Case intCount
+            Case 0
+                input1 = lviB
+                Try
+                    lstKp.Items.Add(lviB)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.Text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviB
+                Try
+                    lstKp.Items.Add(lviB)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviB
+                Try
+                    lstKp.Items.Add(lviB)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviB
+                Try
+                    lstKp.Items.Add(lviB)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picHollowstar_Click(sender As Object, e As EventArgs) Handles picHollowstar.Click
+        lviC = "Hollowstar"
+        Select Case intCount
+            Case 0
+                input1 = lviC
+                Try
+                    lstKp.Items.Add(lviC)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviC
+                Try
+                    lstKp.Items.Add(lviC)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviC
+                Try
+                    lstKp.Items.Add(lviC)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviC
+                Try
+                    lstKp.Items.Add(lviC)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picSmileyface_Click(sender As Object, e As EventArgs) Handles picSmileyface.Click
+        lviD = "Smileyface"
+        Select Case intCount
+            Case 0
+                input1 = lviD
+                Try
+                    lstKp.Items.Add(lviD)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviD
+                Try
+                    lstKp.Items.Add(lviD)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviD
+                Try
+                    lstKp.Items.Add(lviD)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviD
+                Try
+                    lstKp.Items.Add(lviD)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picDoublek_Click(sender As Object, e As EventArgs) Handles picDoublek.Click
+        lviE = "Doublek"
+        Select Case intCount
+            Case 0
+                input1 = lviE
+                Try
+                    lstKp.Items.Add(lviE)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviE
+                Try
+                    lstKp.Items.Add(lviE)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviE
+                Try
+                    lstKp.Items.Add(lviE)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviE
+                Try
+                    lstKp.Items.Add(lviE)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picOmega_Click(sender As Object, e As EventArgs) Handles picOmega.Click
+        lviF = "Omega"
+        Select Case intCount
+            Case 0
+                input1 = lviF
+                Try
+                    lstKp.Items.Add(lviF)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviF
+                Try
+                    lstKp.Items.Add(lviF)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviF
+                Try
+                    lstKp.Items.Add(lviF)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviF
+                Try
+                    lstKp.Items.Add(lviF)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picSquidknife_Click(sender As Object, e As EventArgs) Handles picSquidknife.Click
+        lviG = "Squidknife"
+        Select Case intCount
+            Case 0
+                input1 = lviG
+                Try
+                    lstKp.Items.Add(lviG)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviG
+                Try
+                    lstKp.Items.Add(lviG)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviG
+                Try
+                    lstKp.Items.Add(lviG)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviG
+                Try
+                    lstKp.Items.Add(lviG)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picPumpkin_Click(sender As Object, e As EventArgs) Handles picPumpkin.Click
+        lviH = "Pumpkin"
+        Select Case intCount
+            Case 0
+                input1 = lviH
+                Try
+                    lstKp.Items.Add(lviH)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviH
+                Try
+                    lstKp.Items.Add(lviH)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviH
+                Try
+                    lstKp.Items.Add(lviH)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviH
+                Try
+                    lstKp.Items.Add(lviH)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picHookn_Click(sender As Object, e As EventArgs) Handles picHookn.Click
+        lviI = "Hookn"
+        Select Case intCount
+            Case 0
+                input1 = lviI
+                Try
+                    lstKp.Items.Add(lviI)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviI
+                Try
+                    lstKp.Items.Add(lviI)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviI
+                Try
+                    lstKp.Items.Add(lviI)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviI
+                Try
+                    lstKp.Items.Add(lviI)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picSix_Click(sender As Object, e As EventArgs) Handles picSix.Click
+        lviJ = "Six"
+        Select Case intCount
+            Case 0
+                input1 = lviJ
+                Try
+                    lstKp.Items.Add(lviJ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviJ
+                Try
+                    lstKp.Items.Add(lviJ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviJ
+                Try
+                    lstKp.Items.Add(lviJ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviJ
+                Try
+                    lstKp.Items.Add(lviJ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picSquigglyn_Click(sender As Object, e As EventArgs) Handles picSquigglyn.Click
+        lviK = "Squigglyn"
+        Select Case intCount
+            Case 0
+                input1 = lviK
+                Try
+                    lstKp.Items.Add(lviK)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviK
+                Try
+                    lstKp.Items.Add(lviK)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviK
+                Try
+                    lstKp.Items.Add(lviK)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviK
+                Try
+                    lstKp.Items.Add(lviK)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picAt_Click(sender As Object, e As EventArgs) Handles picAt.Click
+        lviL = "At"
+        Select Case intCount
+            Case 0
+                input1 = lviL
+                Try
+                    lstKp.Items.Add(lviL)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviL
+                Try
+                    lstKp.Items.Add(lviL)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviL
+                Try
+                    lstKp.Items.Add(lviL)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviL
+                Try
+                    lstKp.Items.Add(lviL)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picAe_Click(sender As Object, e As EventArgs) Handles picAe.Click
+        lviM = "Ae"
+        Select Case intCount
+            Case 0
+                input1 = lviM
+                Try
+                    lstKp.Items.Add(lviM)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviM
+                Try
+                    lstKp.Items.Add(lviM)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviM
+                Try
+                    lstKp.Items.Add(lviM)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviM
+                Try
+                    lstKp.Items.Add(lviM)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picMeltedthree_Click(sender As Object, e As EventArgs) Handles picMeltedthree.Click
+        lviN = "Meltedthree"
+        Select Case intCount
+            Case 0
+                input1 = lviN
+                Try
+                    lstKp.Items.Add(lviN)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviN
+                Try
+                    lstKp.Items.Add(lviN)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviN
+                Try
+                    lstKp.Items.Add(lviN)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviN
+                Try
+                    lstKp.Items.Add(lviN)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picEuro_Click(sender As Object, e As EventArgs) Handles picEuro.Click
+        lviO = "Euro"
+        Select Case intCount
+            Case 0
+                input1 = lviO
+                Try
+                    lstKp.Items.Add(lviO)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviO
+                Try
+                    lstKp.Items.Add(lviO)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviO
+                Try
+                    lstKp.Items.Add(lviO)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviO
+                Try
+                    lstKp.Items.Add(lviO)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picNwithhat_Click(sender As Object, e As EventArgs) Handles picNwithhat.Click
+        lviP = "Nwithhat"
+        Select Case intCount
+            Case 0
+                input1 = lviP
+                Try
+                    lstKp.Items.Add(lviP)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviP
+                Try
+                    lstKp.Items.Add(lviP)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviP
+                Try
+                    lstKp.Items.Add(lviP)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviP
+                Try
+                    lstKp.Items.Add(lviP)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picDragon_Click(sender As Object, e As EventArgs) Handles picDragon.Click
+        lviQ = "Dragon"
+        Select Case intCount
+            Case 0
+                input1 = lviQ
+                Try
+                    lstKp.Items.Add(lviQ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviQ
+                Try
+                    lstKp.Items.Add(lviQ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviQ
+                Try
+                    lstKp.Items.Add(lviQ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviQ
+                Try
+                    lstKp.Items.Add(lviQ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picQuestionmark_Click(sender As Object, e As EventArgs) Handles picQuestionmark.Click
+        lviR = "Questionmark"
+        Select Case intCount
+            Case 0
+                input1 = lviR
+                Try
+                    lstKp.Items.Add(lviR)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviR
+                Try
+                    lstKp.Items.Add(lviR)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviR
+                Try
+                    lstKp.Items.Add(lviR)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviR
+                Try
+                    lstKp.Items.Add(lviR)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picParagraph_Click(sender As Object, e As EventArgs) Handles picParagraph.Click
+        lviS = "Paragraph"
+        Select Case intCount
+            Case 0
+                input1 = lviS
+                Try
+                    lstKp.Items.Add(lviS)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviS
+                Try
+                    lstKp.Items.Add(lviS)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviS
+                Try
+                    lstKp.Items.Add(lviS)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviS
+                Try
+                    lstKp.Items.Add(lviS)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picRightc_Click(sender As Object, e As EventArgs) Handles picRightc.Click
+        lviT = "Rightc"
+        Select Case intCount
+            Case 0
+                input1 = lviT
+                Try
+                    lstKp.Items.Add(lviT)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviT
+                Try
+                    lstKp.Items.Add(lviT)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviT
+                Try
+                    lstKp.Items.Add(lviT)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviT
+                Try
+                    lstKp.Items.Add(lviT)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picLeftc_Click(sender As Object, e As EventArgs) Handles picLeftc.Click
+        lviU = "Leftc"
+        Select Case intCount
+            Case 0
+                input1 = lviU
+                Try
+                    lstKp.Items.Add(lviU)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviU
+                Try
+                    lstKp.Items.Add(lviU)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviU
+                Try
+                    lstKp.Items.Add(lviU)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviU
+                Try
+                    lstKp.Items.Add(lviU)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picPitchfork_Click(sender As Object, e As EventArgs) Handles picPitchfork.Click
+        lviV = "Pitchfork"
+        Select Case intCount
+            Case 0
+                input1 = lviV
+                Try
+                    lstKp.Items.Add(lviV)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviV
+                Try
+                    lstKp.Items.Add(lviV)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviV
+                Try
+                    lstKp.Items.Add(lviV)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviV
+                Try
+                    lstKp.Items.Add(lviV)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picCursive_Click(sender As Object, e As EventArgs) Handles picCursive.Click
+        lviW = "Cursive"
+        Select Case intCount
+            Case 0
+                input1 = lviW
+                Try
+                    lstKp.Items.Add(lviW)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviW
+                Try
+                    lstKp.Items.Add(lviW)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviW
+                Try
+                    lstKp.Items.Add(lviW)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviW
+                Try
+                    lstKp.Items.Add(lviW)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picTracks_Click(sender As Object, e As EventArgs) Handles picTracks.Click
+        lviX = "Tracks"
+        Select Case intCount
+            Case 0
+                input1 = lviX
+                Try
+                    lstKp.Items.Add(lviX)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviX
+                Try
+                    lstKp.Items.Add(lviX)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviX
+                Try
+                    lstKp.Items.Add(lviX)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviX
+                Try
+                    lstKp.Items.Add(lviX)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picBalloon_Click(sender As Object, e As EventArgs) Handles picBalloon.Click
+        lviY = "Balloon"
+        Select Case intCount
+            Case 0
+                input1 = lviY
+                Try
+                    lstKp.Items.Add(lviY)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviY
+                Try
+                    lstKp.Items.Add(lviY)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviY
+                Try
+                    lstKp.Items.Add(lviY)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviY
+                Try
+                    lstKp.Items.Add(lviY)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picUpsidedowny_Click(sender As Object, e As EventArgs) Handles picUpsidedowny.Click
+        lviZ = "Upsidedowny"
+        Select Case intCount
+            Case 0
+                input1 = lviZ
+                Try
+                    lstKp.Items.Add(lviZ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviZ
+                Try
+                    lstKp.Items.Add(lviZ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviZ
+                Try
+                    lstKp.Items.Add(lviZ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviZ
+                Try
+                    lstKp.Items.Add(lviZ)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub picBt_Click(sender As Object, e As EventArgs) Handles picBt.Click
+        lviAA = "Bt"
+        Select Case intCount
+            Case 0
+                input1 = lviAA
+                Try
+                    lstKp.Items.Add(lviAA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 1
+                input2 = lviAA
+                Try
+                    lstKp.Items.Add(lviAA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 2
+                input3 = lviAA
+                Try
+                    lstKp.Items.Add(lviAA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+            Case 3
+                input4 = lviAA
+                Try
+                    lstKp.Items.Add(lviAA)
+                    intCount += 1
+                Catch exDupeItem As Exception
+                    lbl1.text = "DupeItem"
+                End Try
+                Order()
+        End Select
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        Reset()
+    End Sub
+
+End Class
+
