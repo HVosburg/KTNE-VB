@@ -1,0 +1,195 @@
+Public Class Simon
+
+    Dim intVowel As Integer = 0
+    Dim intStrikes As Integer = 3
+    Dim blnChk As Boolean = True
+
+    Sub Check()
+
+        If intVowel = 0 Then
+            lblSts1.Text = "Please fill all fields"
+            blnChk = False
+        End If
+
+        If intStrikes = 3 Then
+            lblSts1.Text = "Please fill all fields"
+            blnChk = False
+        End If
+
+    End Sub
+
+    Private Sub btnVowel_Click(sender As Object, e As EventArgs) Handles btnVowel.Click
+        intVowel = 1
+    End Sub
+
+    Private Sub btnNoVowel_Click(sender As Object, e As EventArgs) Handles btnNoVowel.Click
+        intVowel = 2
+    End Sub
+
+    Private Sub btnNone_Click(sender As Object, e As EventArgs) Handles btnNone.Click
+        intStrikes = 0
+    End Sub
+
+    Private Sub btnOne_Click(sender As Object, e As EventArgs) Handles btnOne.Click
+        intStrikes = 1
+    End Sub
+
+    Private Sub btnTwo_Click(sender As Object, e As EventArgs) Handles btnTwo.Click
+        intStrikes = 2
+    End Sub
+
+    Private Sub btnRed_Click(sender As Object, e As EventArgs) Handles btnRed.Click
+
+        Check()
+
+        If intVowel = 1 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Blue")
+
+                Case 1
+                    ListView1.Items.Add("Yellow")
+
+                Case 2
+                    ListView1.Items.Add("Green")
+
+            End Select
+
+        ElseIf intVowel = 2 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Blue")
+
+                Case 1
+                    ListView1.Items.Add("Red")
+
+                Case 2
+                    ListView1.Items.Add("Yellow")
+
+            End Select
+
+        End If
+
+    End Sub
+
+    Private Sub btnBlue_Click(sender As Object, e As EventArgs) Handles btnBlue.Click
+
+        If intVowel = 1 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Red")
+
+                Case 1
+                    ListView1.Items.Add("Green")
+
+                Case 2
+                    ListView1.Items.Add("Red")
+
+            End Select
+
+        ElseIf intVowel = 2 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Yellow")
+
+                Case 1
+                    ListView1.Items.Add("Blue")
+
+                Case 2
+                    ListView1.Items.Add("Green")
+
+            End Select
+
+        End If
+
+    End Sub
+
+    Private Sub btnGreen_Click(sender As Object, e As EventArgs) Handles btnGreen.Click
+
+        If intVowel = 1 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Yellow")
+
+                Case 1
+                    ListView1.Items.Add("Blue")
+
+                Case 2
+                    ListView1.Items.Add("Yellow")
+
+            End Select
+
+        ElseIf intVowel = 2 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Green")
+
+                Case 1
+                    ListView1.Items.Add("Yellow")
+
+                Case 2
+                    ListView1.Items.Add("Blue")
+
+            End Select
+
+        End If
+
+    End Sub
+
+    Private Sub btnYellow_Click(sender As Object, e As EventArgs) Handles btnYellow.Click
+
+        If intVowel = 1 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Green")
+
+                Case 1
+                    ListView1.Items.Add("Red")
+
+                Case 2
+                    ListView1.Items.Add("Blue")
+
+            End Select
+
+        ElseIf intVowel = 2 Then
+
+            Select Case intStrikes
+
+                Case 0
+                    ListView1.Items.Add("Red")
+
+                Case 1
+                    ListView1.Items.Add("Green")
+
+                Case 2
+                    ListView1.Items.Add("Red")
+
+            End Select
+
+        End If
+
+    End Sub
+
+
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        intVowel = 0
+        intStrikes = 3
+        lblSts1.Text = ""
+        ListView1.Items.Clear()
+    End Sub
+End Class
